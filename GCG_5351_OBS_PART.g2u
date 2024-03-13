@@ -1,0 +1,536 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("Obsolete Inventory Parts Exclude Zero On Hand Report")
+Gui.Form..Size(5730,6390)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form..MaxButton(False)
+Gui.Form..Sizeable(False)
+Gui.Form.frameDates.Create(Frame)
+Gui.Form.frameDates.Size(5025,1230)
+Gui.Form.frameDates.Position(300,150)
+Gui.Form.lblNoUsageSince.Create(Label,"Parts With No Usage Since",True,2040,255,0,450,360,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblNoUsageSince.Parent("frameDates")
+Gui.Form.lblCreatedSince.Create(Label,"Exclude Parts Created Since",True,2175,255,0,345,795,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblCreatedSince.Parent("frameDates")
+Gui.Form.dtpNoUsageSince.Create(DatePicker)
+Gui.Form.dtpNoUsageSince.Size(1935,285)
+Gui.Form.dtpNoUsageSince.Position(2655,270)
+Gui.Form.dtpNoUsageSince.Parent("frameDates")
+Gui.Form.dtpNoUsageSince.TabStop(True)
+Gui.Form.dtpNoUsageSince.TabIndex(1)
+Gui.Form.dtpCreatedSince.Create(DatePicker)
+Gui.Form.dtpCreatedSince.Size(1935,285)
+Gui.Form.dtpCreatedSince.Position(2655,705)
+Gui.Form.dtpCreatedSince.Parent("frameDates")
+Gui.Form.dtpCreatedSince.TabStop(True)
+Gui.Form.dtpCreatedSince.TabIndex(2)
+Gui.Form.frameParts.Create(Frame)
+Gui.Form.frameParts.Size(5025,2160)
+Gui.Form.frameParts.Position(300,1545)
+Gui.Form.lblBegPart.Create(Label,"Beginning Part Number",True,1740,255,0,240,300,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblBegPart.Parent("frameParts")
+Gui.Form.txtBegPart.Create(TextBox,"",True,3630,300,0,300,510,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtBegPart.MaxLength(22)
+Gui.Form.txtBegPart.Parent("frameParts")
+Gui.Form.txtBegPart.TabStop(True)
+Gui.Form.txtBegPart.TabIndex(3)
+Gui.Form.txtBegPart.Event(LostFocus,txtBegPart_LostFocus)
+Gui.Form.lblEndPart.Create(Label,"Ending Part Number",True,1740,255,0,240,990,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEndPart.Parent("frameParts")
+Gui.Form.txtEndPart.Create(TextBox,"",True,3630,300,0,300,1200,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEndPart.Parent("frameParts")
+Gui.Form.txtEndPart.TabStop(True)
+Gui.Form.txtEndPart.TabIndex(5)
+Gui.Form.txtEndPart.MaxLength(22)
+Gui.Form.txtEndPart.Event(LostFocus,txtEndPart_LostFocus)
+Gui.Form.cmdBegPartBRW.Create(Button)
+Gui.Form.cmdBegPartBRW.Size(570,450)
+Gui.Form.cmdBegPartBRW.Position(4185,435)
+Gui.Form.cmdBegPartBRW.Parent("frameParts")
+Gui.Form.cmdBegPartBRW.Caption("^")
+Gui.Form.cmdBegPartBRW.Event(Click,cmdBegPartBrw_Click)
+Gui.Form.cmdBegPartBRW.TabStop(True)
+Gui.Form.cmdBegPartBRW.TabIndex(4)
+Gui.Form.cmdEndPartBRW.Create(Button)
+Gui.Form.cmdEndPartBRW.Size(570,450)
+Gui.Form.cmdEndPartBRW.Position(4185,1140)
+Gui.Form.cmdEndPartBRW.Parent("frameParts")
+Gui.Form.cmdEndPartBRW.Caption("^")
+Gui.Form.cmdEndPartBRW.Event(Click,cmdEndPartBrw_Click)
+Gui.Form.cmdEndPartBRW.TabStop(True)
+Gui.Form.cmdEndPartBRW.TabIndex(6)
+Gui.Form.chkAllParts.Create(CheckBox)
+Gui.Form.chkAllParts.Size(1050,360)
+Gui.Form.chkAllParts.Position(405,1695)
+Gui.Form.chkAllParts.Parent("frameParts")
+Gui.Form.chkAllParts.Caption("All Parts")
+Gui.Form.chkAllParts.Event(Click,chkAllParts_Click)
+Gui.Form.chkAllParts.TabStop(True)
+Gui.Form.chkAllParts.TabIndex(7)
+Gui.Form.framePLs.Create(Frame)
+Gui.Form.framePLs.Size(5025,1485)
+Gui.Form.framePLs.Position(300,3840)
+Gui.Form.lblBegPL.Create(Label,"Beginning PL",True,1080,255,0,240,330,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblBegPL.Parent("framePLs")
+Gui.Form.txtBegPL.Create(TextBox,"",True,1215,300,0,300,540,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtBegPL.Parent("framePLs")
+Gui.Form.txtBegPL.TabStop(True)
+Gui.Form.txtBegPL.TabIndex(8)
+Gui.Form.txtBegPL.MaxLength(2)
+Gui.Form.txtBegPL.Event(LostFocus,txtBegPL_LostFocus)
+Gui.Form.cmdBegPLBRW.Create(Button)
+Gui.Form.cmdBegPLBRW.Size(570,450)
+Gui.Form.cmdBegPLBRW.Position(1710,465)
+Gui.Form.cmdBegPLBRW.Parent("framePLs")
+Gui.Form.cmdBegPLBRW.TabStop(True)
+Gui.Form.cmdBegPLBRW.TabIndex(9)
+Gui.Form.cmdBegPLBRW.Caption("^")
+Gui.Form.cmdBegPLBRW.Event(Click,cmdBegPLBRW_Click)
+Gui.Form.lblEndPL.Create(Label,"Ending PL",True,855,255,0,2685,330,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblEndPL.Parent("framePLs")
+Gui.Form.txtEndPL.Create(TextBox,"",True,1215,300,0,2745,540,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtEndPL.Parent("framePLs")
+Gui.Form.txtEndPL.TabStop(True)
+Gui.Form.txtEndPL.TabIndex(10)
+Gui.Form.txtEndPL.MaxLength(2)
+Gui.Form.txtEndPL.Event(LostFocus,txtEndPL_LostFocus)
+Gui.Form.cmdEndPLBRW.Create(Button)
+Gui.Form.cmdEndPLBRW.Size(570,450)
+Gui.Form.cmdEndPLBRW.Position(4155,465)
+Gui.Form.cmdEndPLBRW.Parent("framePLs")
+Gui.Form.cmdEndPLBRW.TabStop(True)
+Gui.Form.cmdEndPLBRW.TabIndex(11)
+Gui.Form.cmdEndPLBRW.Caption("^")
+Gui.Form.cmdEndPLBRW.Event(Click,cmdEndPLBRW_Click)
+Gui.Form.chkAllPLs.Create(CheckBox)
+Gui.Form.chkAllPLs.Size(885,360)
+Gui.Form.chkAllPLs.Position(420,1035)
+Gui.Form.chkAllPLs.Parent("framePLs")
+Gui.Form.chkAllPLs.TabStop(True)
+Gui.Form.chkAllPLs.TabIndex(12)
+Gui.Form.chkAllPLs.Caption("All PLs")
+Gui.Form.chkAllPLs.Event(Click,chkAllPLs_Click)
+Gui.Form.cmdOk.Create(Button)
+Gui.Form.cmdOk.Size(1110,420)
+Gui.Form.cmdOk.Position(435,5520)
+Gui.Form.cmdOk.TabStop(True)
+Gui.Form.cmdOk.TabIndex(13)
+Gui.Form.cmdOk.Caption("Ok")
+Gui.Form.cmdOk.Event(Click,cmdOk_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Author: Bix
+'Date: 13 Nov 2018
+'GCG_5351_OBS_PART.g2u
+'C & B Piping, Inc.
+'Obsolete Parts report that excludes parts with zero on hand qty
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+Gui.Form..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.Form_UnLoad.Start
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.cmdBegPartBrw_Click.Start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.UI.Browser(105,"",V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	Gui.Form.txtBegPart.Text(V.Local.sRet(0).Trim)
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text.Trim,=,"")
+		Gui.Form.txtEndPart.Text(V.Local.sRet(0).Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBegPartBrw_Click.End
+
+Program.Sub.cmdEndPartBrw_Click.Start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.UI.Browser(105,"",V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	Gui.Form.txtEndPart.Text(V.Local.sRet(0).Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdEndPartBrw_Click.End
+
+Program.Sub.txtBegPart_LostFocus.Start
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtBegPart.Text.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select distinct PART from V_INVENTORY_MSTR where PART = '{0}';",V.Screen.Form!txtBegPart.Text.Trim,V.Local.sQuery)
+F.ODBC.Connection!conx.OpenCompanyConnection
+F.ODBC.Connection!conx.OpenRecordsetRO("rstPart",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstPart.EOF)
+	F.Intrinsic.UI.Msgbox("Invalid Part")
+	Gui.Form.txtBegPart.Text("")
+	Gui.Form.txtBegPart.SetFocus
+F.Intrinsic.Control.Else
+	Gui.Form.txtBegPart.Text(V.Screen.Form!txtBegPart.Text.Trim)
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text.Trim,=,"")
+		Gui.Form.txtEndPart.Text(V.Screen.Form!txtBegPart.Text.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstPart.Close
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtBegPart_LostFocus.End
+
+Program.Sub.txtEndPart_LostFocus.Start
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select distinct PART from V_INVENTORY_MSTR where PART = '{0}';",V.Screen.Form!txtEndPart.Text.Trim,V.Local.sQuery)
+F.ODBC.Connection!conx.OpenCompanyConnection
+F.ODBC.Connection!conx.OpenRecordsetRO("rstPart",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstPart.EOF)
+	F.Intrinsic.UI.Msgbox("Invalid Part")
+	Gui.Form.txtEndPart.Text("")
+	Gui.Form.txtEndPart.SetFocus
+F.Intrinsic.Control.Else
+	Gui.Form.txtEndPart.Text(V.Screen.Form!txtEndPart.Text.Trim)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstPart.Close
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEndPart_LostFocus.End
+
+Program.Sub.chkAllParts_Click.Start
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!chkAllParts.CheckedAsBoolean)
+	Gui.Form.txtBegPart.Text("")
+	Gui.Form.txtEndPart.Text("")
+	Gui.Form.txtBegPart.Enabled(False)
+	Gui.Form.txtEndPart.Enabled(False)
+	Gui.Form.cmdBegPartBRW.Enabled(False)
+	Gui.Form.cmdEndPartBRW.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.Form.txtBegPart.Enabled(True)
+	Gui.Form.txtEndPart.Enabled(True)
+	Gui.Form.cmdBegPartBRW.Enabled(True)
+	Gui.Form.cmdEndPartBRW.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.chkAllParts_Click.End
+
+Program.Sub.txtBegPL_LostFocus.Start
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtBegPL.Text.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select distinct PRODUCT_LINE from V_PRODUCT_LINE where PRODUCT_LINE = '{0}';",V.Screen.Form!txtBegPL.Text.Trim,V.Local.sQuery)
+F.ODBC.Connection!conx.OpenCompanyConnection
+F.ODBC.Connection!conx.OpenRecordsetRO("rstPL",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstPL.EOF)
+	F.Intrinsic.UI.Msgbox("Invalid Product Line")
+	Gui.Form.txtBegPL.Text("")
+	Gui.Form.txtBegPL.SetFocus
+F.Intrinsic.Control.Else
+	Gui.Form.txtBegPL.Text(V.Screen.Form!txtBegPL.Text.Trim)
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPL.Text.Trim,=,"")
+		Gui.Form.txtEndPL.Text(V.Screen.Form!txtBegPL.Text.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstPL.Close
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtBegPL_LostFocus.End
+
+Program.Sub.cmdBegPLBRW_Click.Start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.UI.Browser(130,"",V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	Gui.Form.txtBegPL.Text(V.Local.sRet(0).Trim)
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPL.Text.Trim,=,"")
+		Gui.Form.txtEndPL.Text(V.Local.sRet(0).Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBegPLBRW_Click.End
+
+Program.Sub.txtEndPL_LostFocus.Start
+V.Local.sError.Declare(String)
+V.Local.sQuery.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!txtEndPL.Text.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select distinct PRODUCT_LINE from V_PRODUCT_LINE where PRODUCT_LINE = '{0}';",V.Screen.Form!txtEndPL.Text.Trim,V.Local.sQuery)
+F.ODBC.Connection!conx.OpenCompanyConnection
+F.ODBC.Connection!conx.OpenRecordsetRO("rstPL",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstPL.EOF)
+	F.Intrinsic.UI.Msgbox("Invalid Product Line")
+	Gui.Form.txtEndPL.Text("")
+	Gui.Form.txtEndPL.SetFocus
+F.Intrinsic.Control.Else
+	Gui.Form.txtEndPL.Text(V.Screen.Form!txtEndPL.Text.Trim)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstPL.Close
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.txtEndPL_LostFocus.End
+
+Program.Sub.cmdEndPLBRW_Click.Start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare
+F.Intrinsic.Control.Try
+
+F.Intrinsic.UI.Browser(130,"",V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet.IsCancel,=,False)
+	Gui.Form.txtEndPL.Text(V.Local.sRet(0).Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdEndPLBRW_Click.End
+
+Program.Sub.cmdOk_Click.Start
+'Collect parts and their relevant information from DB tables, GCG_5351_OBS_PART, run report
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sFilter.Declare(String)
+V.Local.sParams.Declare(String)
+V.Local.sValues.Declare(String)
+V.Local.iReportID.Declare(Long)
+V.Local.bBegPart.Declare(Boolean,False)
+V.Local.bEndPart.Declare(Boolean,False)
+V.Local.bBegPL.Declare(Boolean,False)
+F.Intrinsic.Control.Try
+
+Gui.Form..Enabled(False)
+
+F.Global.BI.GetIDFromName("GCG_5351_OBS_PART.RPT",V.Local.iReportID)
+
+'Build DT of BI data
+F.Intrinsic.String.Build("select * from GCG_5351_OBS_PART where TERMINAL = '{0}' and REPORT_ID = '{1}';",V.Caller.Terminal,V.Local.iReportID.String,V.Local.sSQL)
+F.ODBC.Connection!conx.OpenCompanyConnection
+F.Data.DataTable.CreateFromSQL("GCG_5351_OBS_PART","conx",V.Local.sSQL)
+'Clear DT
+F.Data.DataTable.DeleteRow("GCG_5351_OBS_PART")
+'Get information from DB
+F.Data.DataTable.CreateFromSQL("dtPartCost","conx","select PART, LOCN, COST from V_INVENTORY_COST;")
+F.Data.DataTable.CreateFromSQL("dtPartCreate","conx","select PART, LOCATION, YEAR(PART_CREATE_DATE) as MST3YEAR, MONTH(PART_CREATE_DATE) as MST3MONTH, DAY(PART_CREATE_DATE) as MST3DAY from V_INVENTORY_MST3;")
+V.Local.sSQL.Set("select PART, LOCATION, PRODUCT_LINE, DESCRIPTION, QTY_ONHAND, YEAR(DATE_LAST_USAGE) as MSTRYEAR, MONTH(DATE_LAST_USAGE) as MSTRMONTH, DAY(DATE_LAST_USAGE) as MSTRDAY from V_INVENTORY_MSTR")
+'This tree is kind of confusing, but trust me it works with PSQL sorting logic
+F.Intrinsic.Control.If(V.Screen.Form!chkAllParts.CheckedAsBoolean,=,False)
+	F.Intrinsic.Control.If(V.Screen.Form!txtBegPart.Text.Trim,!=,"")
+		F.Intrinsic.String.Build("{0} where",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.String.Build("{0} PART >= '{1}'",V.Local.sSQL,V.Screen.Form!txtBegPart.Text.Trim,V.Local.sSQL)
+		V.Local.bBegPart.Set(True)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPart.Text.Trim,!=,"")
+		F.Intrinsic.Control.If(V.Local.bBegPart)
+			F.Intrinsic.String.Build("{0} and",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0} where",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Build("{0} PART <= '{1}'",V.Local.sSQL,V.Screen.Form!txtEndPart.Text.Trim,V.Local.sSQL)
+		V.Local.bEndPart.Set(True)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.Form!chkAllPLs.CheckedAsBoolean,=,False)
+	F.Intrinsic.Control.If(V.Screen.Form!txtBegPL.Text.Trim,!=,"")
+		F.Intrinsic.Control.If(V.Local.bBegPart,=,True,"or",V.Local.bEndPart,=,True)
+			F.Intrinsic.String.Build("{0} and",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0} where",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Build("{0} PRODUCT_LINE >= '{1}'",V.Local.sSQL,V.Screen.Form!txtBegPL.Text.Trim,V.Local.sSQL)
+		V.Local.bBegPL.Set(True)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.Form!txtEndPL.Text.Trim,!=,"")
+		F.Intrinsic.Control.If(V.Local.bBegPart,=,True,"or",V.Local.bEndPart,=,True,V.Local.bBegPL,=,True)
+			F.Intrinsic.String.Build("{0} and",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0} where",V.Local.sSQL,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Build("{0} PRODUCT_LINE <= '{1}'",V.Local.sSQL,V.Screen.Form!txtEndPL.Text.Trim,V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.String.Build("{0} order by PART, LOCATION;",V.Local.sSQL,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtPartList","conx",V.Local.sSQL)
+F.Data.DataTable.AddColumn("dtPartList","TERMINAL","String",V.Caller.Terminal)
+F.Data.DataTable.AddColumn("dtPartList","REPORT_ID","String",V.Local.iReportID.String)
+'Convert date info into usable strings
+F.Data.DataTable.AddColumn("dtPartList","YEAR","String")
+F.Data.DataTable.SetValueFormat("dtPartList",-1,"MSTRYEAR","YEAR","0000")
+F.Data.DataTable.AddColumn("dtPartList","MONTH","String")
+F.Data.DataTable.SetValueFormat("dtPartList",-1,"MSTRMONTH","MONTH","00")
+F.Data.DataTable.AddColumn("dtPartList","DAY","String")
+F.Data.DataTable.SetValueFormat("dtPartList",-1,"MSTRDAY","DAY","00")
+F.Data.DataTable.AddExpressionColumn("dtPartList","DATE_LAST_USAGEYYYYMMDD","Float","YEAR + MONTH + DAY")
+F.Data.DataTable.AddExpressionColumn("dtPartList","DATE_LAST_USAGE","String","MONTH + '/' + DAY + '/' + YEAR")
+F.Data.DataTable.AddColumn("dtPartCreate","YEAR","String")
+F.Data.DataTable.SetValueFormat("dtPartCreate",-1,"MST3YEAR","YEAR","0000")
+F.Data.DataTable.AddColumn("dtPartCreate","MONTH","String")
+F.Data.DataTable.SetValueFormat("dtPartCreate",-1,"MST3MONTH","MONTH","00")
+F.Data.DataTable.AddColumn("dtPartCreate","DAY","String")
+F.Data.DataTable.SetValueFormat("dtPartCreate",-1,"MST3DAY","DAY","00")
+F.Data.DataTable.AddExpressionColumn("dtPartCreate","PART_CREATE_DATEYYYYMMDD","Float","YEAR + MONTH + DAY")
+'Join the DTs and limit the selection based on Dates
+F.Data.Linq.Join("LeftJoin","DataTable","dtPartList*!*MSTR","DataTable","dtPartCost*!*COSTT","MSTR.PART = COSTT.PART and MSTR.LOCATION = COSTT.LOCN","DataTable","dtPartCreate*!*MST3","MSTR.PART = MST3.PART and MSTR.LOCATION = MST3.LOCATION","MSTR.TERMINAL*!*MSTR.REPORT_ID*!*MSTR.DATE_LAST_USAGE as LAST_USE*!*MSTR.PART*!*MSTR.LOCATION*!*MSTR.DESCRIPTION*!*MSTR.PRODUCT_LINE as PL*!*COSTT.COST*!*MSTR.QTY_ONHAND as QTY*!*MSTR.DATE_LAST_USAGEYYYYMMDD*!*MST3.PART_CREATE_DATEYYYYMMDD","","","MSTR.PART desc, MSTR.LOCATION desc","dtTEMP",True)
+F.Data.DataTable.Close("dtPartCost")
+F.Data.DataTable.Close("dtPartCreate")
+F.Data.DataTable.Close("dtPartList")
+F.Intrinsic.String.Build("DATE_LAST_USAGEYYYYMMDD < {0} and (PART_CREATE_DATEYYYYMMDD < {1} or ISNULL(PART_CREATE_DATEYYYYMMDD,0) = 0) and QTY <> 0",V.Screen.Form!dtpNoUsageSince.Value.FormatYYYYMMDD,V.Screen.Form!dtpCreatedSince.Value.FormatYYYYMMDD,V.Local.sFilter)
+F.Data.DataView.Create("dtTEMP","dv",22,V.Local.sFilter,"")
+F.Data.DataView.ToDataTable("dtTEMP","dv","dtDataForBI")
+F.Data.DataTable.Close("dtTEMP")
+'Get extension and convert Floats to Strings to merge into BI DT
+F.Data.DataTable.AddExpressionColumn("dtDataForBI","EXT_CALC","Float","COST * QTY")
+F.Data.DataTable.AddColumn("dtDataForBI","EXTENSION","String")
+F.Data.DataTable.SetValueFormat("dtDataForBI",-1,"EXT_CALC","EXTENSION","#,###,###.00")
+F.Data.DataTable.AddColumn("dtDataForBI","UNIT_COST","String")
+F.Data.DataTable.SetValueFormat("dtDataForBI",-1,"COST","UNIT_COST","#,###,###.0000")
+F.Data.DataTable.AddColumn("dtDataForBI","QTY_ONHAND","String")
+F.Data.DataTable.SetValueFormat("dtDataForBI",-1,"QTY","QTY_ONHAND","#,###,###.0000")
+F.Data.DataTable.Merge("dtDataForBI","GCG_5351_OBS_PART",True,2)
+F.Data.DataTable.Close("dtDataForBI")
+F.Data.DataTable.SaveToDB("GCG_5351_OBS_PART","conx","GCG_5351_OBS_PART","TERMINAL*!*REPORT_ID*!*PART*!*LOCATION")
+F.Data.DataTable.Close("GCG_5351_OBS_PART")
+F.ODBC.Connection!conx.Close
+
+V.Local.sParams.Set("Terminal*!*ReportID*!*AllParts*!*BegPart*!*EndPart*!*AllPLs*!*BegPL*!*EndPL*!*CompanyName*!*LastUse*!*ExcludeSince")
+F.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}*!*{6}*!*{7}*!*{8}*!*{9}*!*{10}",V.Caller.Terminal,V.Local.iReportID.String,V.Screen.Form!chkAllParts.CheckedAsBoolean,V.Screen.Form!txtBegPart.Text,V.Screen.Form!txtEndPart.Text,V.Screen.Form!chkAllPLs.CheckedAsBoolean,V.Screen.Form!txtBegPL.Text,V.Screen.Form!txtEndPL.Text,V.Ambient.CompanyName,V.Screen.Form!dtpNoUsageSince.Value.FormatMM/DD/YYYY,V.Screen.Form!dtpCreatedSince.Value.FormatMM/DD/YYYY,V.Local.sValues)
+F.Intrinsic.String.Split(V.Local.sParams,"*!*",V.Local.sParams)
+F.Intrinsic.String.Split(V.Local.sValues,"*!*",V.Local.sValues)
+
+F.Global.BI.PrintReport(V.Local.iReportID,16,V.Local.sParams,V.Local.sValues,"GSVIEW",True)
+
+F.Intrinsic.Control.CallSub(Form_UnLoad)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdOk_Click.End
+
+Program.Sub.chkAllPLs_Click.Start
+V.Local.sError.Declare(String)
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.Form!chkAllPLs.CheckedAsBoolean)
+	Gui.Form.txtBegPL.Text("")
+	Gui.Form.txtEndPL.Text("")
+	Gui.Form.txtBegPL.Enabled(False)
+	Gui.Form.txtEndPL.Enabled(False)
+	Gui.Form.cmdBegPLBRW.Enabled(False)
+	Gui.Form.cmdEndPLBRW.Enabled(False)
+F.Intrinsic.Control.Else
+	Gui.Form.txtBegPL.Enabled(True)
+	Gui.Form.txtEndPL.Enabled(True)
+	Gui.Form.cmdBegPLBRW.Enabled(True)
+	Gui.Form.cmdEndPLBRW.Enabled(True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.chkAllPLs_Click.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$adsouza$}$20230920152106382$}$JX3L09Cgehg7O+lKYSb2ur8FFsJUp9u/rqgL/EAVdTbwpb8VqVCNqQ2b4O1MlEfdPn89RPtjYS4=
+Program.Sub.Comments.End
